@@ -1,0 +1,137 @@
+
+
+/*********************************
+    Form
+*********************************/
+
+form {
+  display: flex;
+}
+
+/*********************************
+    Button
+*********************************/
+
+@mixin form-button() {
+  background-color: lighten($demo-blue, 6);
+  border-radius: 4px;
+  border-color: transparent;
+  box-shadow: none;
+  color: $demo-white;
+  display: block;
+  font-size: $demo-fontSize;
+  height: 54px;
+  letter-spacing: 1px;
+  margin-top: 1.65rem;
+  padding: 0 1rem;
+  position: relative;
+  transition: background-color 0.6s;
+
+  &:hover {
+    background-color: $demo-blue;
+    cursor: pointer;
+  }
+  
+  &:focus {
+    box-shadow: 0 3px 4px rgba($demo-blue, 0.3) inset;
+    outline: $border-width solid $demo-invalid;
+    outline-offset: -#{$border-width};
+  }
+
+  &[disabled],
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  &:not(:focus):invalid {
+    color: $demo-invalid;
+  }
+}
+
+// Show the function
+[class*="form-button"] {
+  @include form-button();
+}
+
+
+/*********************************
+    Select box
+*********************************/
+
+@mixin form-select() {
+  color: $demo-blue;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0;
+  box-shadow: none;
+  padding-right: 2rem;
+  position: relative;
+
+  &:hover {
+    select {
+      border-color: $demo-blue;
+      box-shadow: 0 2px 3px rgba($demo-blue, 0.1) inset;
+
+      &:focus {
+        outline-color: transparent;
+      }
+    }
+  }
+
+  select,
+  option {
+    font-size: $demo-fontSize;
+    min-width: 3.5vw;
+    text-transform: capitalize;
+  }
+
+  select {
+    border: $border-width solid $demo-border;
+    border-radius: 0;
+    color: inherit;
+    font-family: $fontFamily;
+    font-weight: 400;
+    line-height: normal;
+    padding: 11px 15px;
+    position: relative;
+    text-indent: 1px;
+    text-overflow: "";
+    transition: border-color 0.2s ease, outline 0.2s ease;
+
+    &:focus {
+      box-shadow: 0 3px 4px rgba($demo-blue, 0.3) inset;
+      outline: $border-width solid $demo-blue;
+      outline-offset: -#{$border-width};
+    }
+
+    &[disabled],
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    &:not(:focus):invalid {
+      color: $demo-invalid;
+    }
+  }
+
+  .dropdown__label {
+    color: $demo-white;
+    font-family: $fontFamily;
+    font-size: 1rem;
+    font-weight: 500;
+    padding-bottom: 0.25rem;
+  }
+
+  .errored {
+    border-color: red;
+  }
+}
+
+// Show the function
+[class*="form-select"] {
+  @include form-select();
+}
+
+
