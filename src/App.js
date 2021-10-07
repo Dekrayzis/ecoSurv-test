@@ -60,7 +60,7 @@ const App = () => {
       .map((imgURL, idx) => (
         <BreedImage
           key={imgURL + idx}
-          img={imgURL}
+          imgUrl={imgURL}
           label={`breed-img-${idx}`}
         />
       ));

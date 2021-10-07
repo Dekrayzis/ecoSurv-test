@@ -1,17 +1,17 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 export const DropDown = ({
   blankFirstOption,
   options = [],
   label,
   name,
-  selected,
   onChange,
   error,
 }) => {
   const render_OptionsList = () =>
   options.map((value, idx) => (
-      <Option key={value + idx} value={value} selected={selected} />
+      <Option key={value + idx} value={value}/>
     ));
 
   return (
@@ -26,7 +26,7 @@ export const DropDown = ({
         onChange={(e) => onChange(e.target.value)}
       >
         {blankFirstOption && (
-          <option className="dropdown__option" value="" selected={selected}>
+          <option className="dropdown__option" value="" >
             Select
           </option>
         )}
@@ -36,10 +36,28 @@ export const DropDown = ({
   );
 };
 
-export const Option = ({ selected, value }) => {
+
+
+DropDown.propTypes = {
+  options: PropTypes.array,
+  label: PropTypes.string,
+  name: PropTypes.string,
+  onChange: PropTypes.func,
+  error: PropTypes.bool,
+};
+
+
+export const Option = ({ value }) => {
   return (
-    <option className="dropdown__option" value={value} selected={selected}>
+    <option className="dropdown__option" value={value}>
       {value}
     </option>
   );
+};
+
+Option.propTypes = {
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ])
 };

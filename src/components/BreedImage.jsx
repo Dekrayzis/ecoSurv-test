@@ -1,9 +1,16 @@
-import React from 'react';
+import React from "react";
+import PropTypes from "prop-types";
 
-export const BreedImage = ({img, label, onClick}) => {
-    return (
-        <div className="image-wrapper" onClick={onClick}>
-            <img src={img} alt={label} />
-        </div>
-    );
+export const BreedImage = ({ imgUrl, label, onClick }) => {
+  return (
+    <div className="image-wrapper" onClick={onClick}>
+      <img src={imgUrl} alt={label} />
+    </div>
+  );
+};
+
+BreedImage.propTypes = {
+  onClick: PropTypes.func,
+  imgUrl: PropTypes.string,
+  label: PropTypes.string,
 };
