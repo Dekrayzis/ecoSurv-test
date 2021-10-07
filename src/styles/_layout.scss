@@ -1,0 +1,83 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+
+/*********************************
+    Application
+*********************************/
+
+.App {
+  min-height: 100vh;
+  width: 100vw;
+
+  .app__header {
+    width: inherit;
+    height: 250px;
+    background: #ffa51f;
+    margin-bottom: 0.25rem;
+  }
+}
+
+
+/*********************************
+    Typography
+*********************************/
+
+a,
+p,
+span {
+  font-family: $fontFamily;
+}
+
+
+/*********************************
+    container
+*********************************/
+
+.container {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90%;
+  position: relative;
+  align-items: center;
+  min-height: 25vh;
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+
+    .column {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+/*********************************
+    Image container
+*********************************/
+
+.images-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+  .image-wrapper {
+    display: block;
+    margin: 0.25rem;
+    position: relative;
+    width: 14vw;
+
+    img {
+      width: 100%;
+    }
+  }
+}
